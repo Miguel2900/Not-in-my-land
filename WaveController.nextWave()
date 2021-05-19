@@ -1,0 +1,12 @@
+void nextWave()
+    {
+        if (waveCounter < wavesNumber)
+        {
+            waveCounter++;
+            sightMech++;
+            attackMech++;
+            sightGrunt++;
+            setCounter = 0;
+            nextSet();
+        }
+    }
