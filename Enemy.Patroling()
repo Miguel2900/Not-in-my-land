@@ -1,0 +1,18 @@
+private void Patroling()
+    {
+        if (!walkPointSet)
+            SearchWalkPoint();
+
+        if (walkPointSet)
+        {
+            agent.SetDestination(walkPoint);
+            animator.SetBool("isWalking", true);
+        }
+
+        if (Vector3.Distance(transform.position, walkPoint) < 1f)
+        {
+            walkPointSet = false;
+            animator.SetBool("isWalking", false);
+        }
+
+    }
