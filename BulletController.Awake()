@@ -1,0 +1,7 @@
+private void Awake()
+    {
+        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+        Vector3 direction = transform.forward + new Vector3(Random.Range(-0.5f, 0.5f), 0, Random.Range(-0.5f, 0.5f));
+        rb.AddForce(direction * 32f, ForceMode.Impulse);
+        Destroy(gameObject, 4);
+    }
