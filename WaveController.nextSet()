@@ -1,0 +1,31 @@
+void nextSet()
+    {
+        CanvasController.showFiveRemaining = true;
+        CanvasController.showOneRemaining = true;
+        CanvasController.showLessThanFiveRemaining = true;
+        if (setCounter < setsNumber)
+        {
+            int mechCounter;
+            Transform spawnpoint = pickSpawn();
+            enemyCount = Random.Range(10, 20);
+            for (int i = 0; i < enemyCount; i++)
+            {
+                GameObject newGrunt = Instantiate(grunt, spawnpoint.position, transform.rotation);
+                EnemyAI enemyAI = grunt.GetComponent<EnemyAI>();
+                enemyAI.sightRange = sightGrunt;
+            }
+            mechCounter = Random.Range(1, 3);
+            enemyCount += mechCounter;
+            for (int i = 0; i < mechCounter; i++)
+            {
+                GameObject newMech = Instantiate(mech, spawnpoint.position, transform.rotation);
+                EnemyAI enemyAI = mech.GetComponent<EnemyAI>();
+                enemyAI.sightRange = sightMech;
+                enemyAI.attackRange = attackMech;
+            }
+        }
+        else
+        {
+            nextWave();
+        }
+    }
